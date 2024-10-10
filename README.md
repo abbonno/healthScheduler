@@ -28,3 +28,7 @@ El problema tiene lugar en un hospital. Los enfermeros tienen que cumplir cierto
  - [Configuración perfil 1](.\docs\conf1.png)
  - [Configuración perfil 2](.\docs\conf2.png)
  - [Configuración perfil 1](.\docs\claveSSH.png)
+
+ - ["User journeys"](.\docs\user_journeys.md)
+ - [Historias de Usuario](.\docs\HU.md)
+ - [Milestones](.\docs\milestones.md)
