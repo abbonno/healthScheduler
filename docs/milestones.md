@@ -2,7 +2,7 @@
 
 ## Milestone 0
 
-Analizar las historias de usuario y definir los objetos iniciales que formarán parte y se tendrán en cuenta en la lógica de la aplicación (esquema sustantivo -> objeto).
+Analizar las historias de usuario y definir las reglas a tener en cuenta, así como las tecnologías que serán necesarias para comenzar y los objetos iniciales con los que se definirán las reglasformarán parte y se tendrán en cuenta en la lógica de la aplicación (esquema sustantivo -> objeto).
 
 + **Mínimo viable**
 
