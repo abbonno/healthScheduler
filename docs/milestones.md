@@ -21,7 +21,7 @@ Asignación de los horarios de cada enfermero de forma básica, con tal de emple
 
 ## Milestone 2: Condicionar turnos en el horario
 
-Asignación de los horarios de cada enfermero siguiendo las condiciones de cada contrato de una manera más estricta y adaptándolo a un caso más real.
+Asignación de los horarios de cada enfermero siguiendo las condiciones de cada contrato de una manera más estricta y adaptándolo a un caso más real. Otro acercamiento hacia las historias de usuario 1 y 4.
 
 + **Mínimo viable**
 
