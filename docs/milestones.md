@@ -6,8 +6,7 @@ Decidir las tecnologías que serán necesarias para comenzar a tratar el problem
 
 + **Producto Mínimo Viable**
 
-- Se ha escogido un lenguaje y una estructura de directorios adecuados para afrontar el proyecto.
-- Existe una estructura para cada entidad básica del problema (una clase, un objeto, una variable, una constante, un struct...).
+- Existe una estructura para cada entidad básica del problema (una clase, un objeto, una variable, una constante, un struct...), así como las relaciones que existen entre ellas.
 
 ## Milestone 1: Creación horario inicial
 
