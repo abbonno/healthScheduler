@@ -1,12 +1,12 @@
 # Milestones
 
-## Milestone 0: Definición de entidades
+## Milestone 0: Diseño del dominio del problema
 
-Decidir las tecnologías que serán necesarias para comenzar a tratar el problema. Con respecto a la historia de usuario 1, definir las entidades y objetos comprendidos en ella.
+Se crea un modelo inicial del problema a tratar. Con respecto a la historia de usuario 1 emplear la información indicada para acotar el dominio del problema.
 
 + **Producto Mínimo Viable**
 
-- Existe una estructura para cada entidad básica del problema, así como las relaciones que existen entre ellas.
+- Existe un modelo del problema adecuado a la historia de usuario.
 
 ## Milestone 1: Creación horario inicial
 
@@ -14,5 +14,5 @@ Determinar una forma de que el cliente pueda conocer los horarios suyo y de cada
 
 + **Producto Mínimo Viable**
 
-- Se consigue almacenar una relación horario/enfermero.
+- Se consigue almacenar la relación entre enfermeros y sus horarios respectivos.
 - Es posible acceder a la información horario/enfermero.
