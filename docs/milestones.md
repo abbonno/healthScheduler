@@ -6,7 +6,7 @@ Decidir las tecnologías que serán necesarias para comenzar a tratar el problem
 
 + **Producto Mínimo Viable**
 
-- Existe una estructura para cada entidad básica del problema (una clase, un objeto, una variable, una constante, un struct...), así como las relaciones que existen entre ellas.
+- Existe una estructura para cada entidad básica del problema, así como las relaciones que existen entre ellas.
 
 ## Milestone 1: Creación horario inicial
 
@@ -14,6 +14,5 @@ Determinar una forma de que el cliente pueda conocer los horarios suyo y de cada
 
 + **Producto Mínimo Viable**
 
-- Se emplea la información obtenida en el [apartado de "Factores a tener en cuenta"](../README.md#L9) del readme para determinar las reglas (variables, constantes...).
-- Se define un algoritmo de asignación equilibrada de turnos, dado un número de trabajadores.
-- El algoritmo cumple todos los aspectos de los contratos con cierta flexibilidad (pueden sobrepasar las horas anuales con tal de cumplir los turnos necesarios).
+- Se consigue almacenar una relación horario/enfermero.
+- Es posible acceder a la información horario/enfermero.
