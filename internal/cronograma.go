@@ -2,7 +2,7 @@ package health_scheduler
 
 type Asignacion struct {
 	Empleado   Empleado
-	Area       Area
+	Area       string
 	Turno      Turno
 	EsFlexible bool
 }
@@ -12,7 +12,7 @@ type CronogramaDiario struct {
 	Asignaciones []Asignacion
 }
 
-func NuevaAsignacion(empleado Empleado, area Area, turno Turno, esFlexible bool) *Asignacion {
+func NuevaAsignacion(empleado Empleado, area string, turno Turno, esFlexible bool) *Asignacion {
 	return &Asignacion{
 		Empleado:   empleado,
 		Area:       area,
