@@ -21,8 +21,8 @@ func (e *RegistroTurnos) AgregarTurno(turno Turno) {
 func (e *RegistroTurnos) ListarTurnos() {
 	for _, turno := range e.Turnos {
 		fmt.Printf("Empleado: %s, Turno: %s, Fecha: %s, Inicio: %s, Fin: %s, Área: %s\n",
-			turno.Empleado.Nombre,
-			turno.Nombre,
+			turno.Empleado,
+			turno.NombreTurno,
 			turno.Fecha,
 			turno.Inicio,
 			turno.Fin,
@@ -32,7 +32,7 @@ func (e *RegistroTurnos) ListarTurnos() {
 
 func (e *RegistroTurnos) ObtenerTurnoPorEmpleado(nombreEmpleado string) *Turno {
 	for _, turno := range e.Turnos {
-		if turno.Empleado.Nombre == nombreEmpleado {
+		if turno.Empleado == nombreEmpleado {
 			return &turno
 		}
 	}
