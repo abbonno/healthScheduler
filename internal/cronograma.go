@@ -1,24 +1,29 @@
 package health_scheduler
 
-type Asignacion struct {
-	ID         string
-	Empleado   Empleado
-	Area       string
-	Turno      Turno
-	EsFlexible bool
-}
+type DiaSemana string
 
-type CronogramaDiario struct {
-	Fecha        string
+const (
+	Lunes     DiaSemana = "Lunes"
+	Martes    DiaSemana = "Martes"
+	Miercoles DiaSemana = "Miercoles"
+	Jueves    DiaSemana = "Jueves"
+	Viernes   DiaSemana = "Viernes"
+)
+
+type CronogramaSemanal struct {
+	Dia          DiaSemana
 	Asignaciones []Asignacion
 }
 
-func NuevaAsignacion(id string, empleado Empleado, area string, turno Turno, esFlexible bool) *Asignacion {
-	return &Asignacion{
-		ID:         id,
-		Empleado:   empleado,
-		Area:       area,
-		Turno:      turno,
-		EsFlexible: esFlexible,
+// Método para crear un nuevo cronograma para un día específico
+func NuevoCronograma(dia DiaSemana) *CronogramaSemanal {
+	return &CronogramaSemanal{
+		Dia:          dia,
+		Asignaciones: []Asignacion{}, // Inicializa la lista vacía
 	}
+}
+
+// Método para añadir una asignación al cronograma
+func (c *CronogramaSemanal) AgregarAsignacion(asignacion Asignacion) {
+	c.Asignaciones = append(c.Asignaciones, asignacion)
 }
