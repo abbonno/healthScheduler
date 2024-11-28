@@ -35,15 +35,15 @@ const (
 )
 
 type Turno struct {
-	Empleado Empleado
-	Nombre   TipoTurno
-	Area     string
-	Fecha    string
-	Inicio   string
-	Fin      string
+	Empleado    string
+	NombreTurno TipoTurno
+	Area        string
+	Fecha       string
+	Inicio      string
+	Fin         string
 }
 
-func NuevoTurno(empleado Empleado, nombre TipoTurno, area, fecha string) *Turno {
+func NuevoTurno(empleado string, nombre TipoTurno, area, fecha string) *Turno {
 	var inicio, fin, fechaFin string
 
 	switch nombre {
@@ -64,12 +64,12 @@ func NuevoTurno(empleado Empleado, nombre TipoTurno, area, fecha string) *Turno 
 	}
 
 	return &Turno{
-		Empleado: empleado,
-		Nombre:   nombre,
-		Area:     area,
-		Fecha:    fecha,
-		Inicio:   fmt.Sprintf("%s %s", fecha, inicio),
-		Fin:      fmt.Sprintf("%s %s", fechaFin, fin),
+		Empleado:    empleado,
+		NombreTurno: nombre,
+		Area:        area,
+		Fecha:       fecha,
+		Inicio:      fmt.Sprintf("%s %s", fecha, inicio),
+		Fin:         fmt.Sprintf("%s %s", fechaFin, fin),
 	}
 }
 
