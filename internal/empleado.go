@@ -1,19 +1,13 @@
 package health_scheduler
 
 type Empleado struct {
-	Nombre         string
-	TipoContrato   Contrato
-	Turno          Turno
-	Area           string
-	Disponibilidad []string
+	Nombre       string
+	TipoContrato Contrato
 }
 
-func NuevoEmpleado(nombre string, tipoContrato Contrato, turno Turno, area string, disponibilidad []string) *Empleado {
+func NuevoEmpleado(nombre string, tipoContrato Contrato) *Empleado {
 	return &Empleado{
-		Nombre:         nombre,
-		TipoContrato:   tipoContrato,
-		Turno:          turno,
-		Area:           area,
-		Disponibilidad: disponibilidad,
+		Nombre:       nombre,
+		TipoContrato: tipoContrato,
 	}
 }
