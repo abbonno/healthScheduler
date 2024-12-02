@@ -13,29 +13,14 @@ const (
 	Noche  TipoTurno = "Noche"
 )
 
-type HorarioMañana string
-
-const (
-	InicioMañana HorarioMañana = "08:00"
-	FinMañana    HorarioMañana = "15:00"
-)
-
-type HorarioTarde string
-
-const (
-	InicioTarde HorarioTarde = "15:00"
-	FinTarde    HorarioTarde = "22:00"
-)
-
-type HorarioNoche string
-
-const (
-	InicioNoche HorarioNoche = "22:00"
-	FinNoche    HorarioNoche = "08:00"
-)
+var horarios = map[TipoTurno][2]string{
+	Mañana: {"08:00", "15:00"},
+	Tarde:  {"15:00", "22:00"},
+	Noche:  {"22:00", "08:00"},
+}
 
 type Turno struct {
-	Empleado    string
+	Empleado    Empleado
 	NombreTurno TipoTurno
 	Area        string
 	Fecha       string
@@ -43,24 +28,15 @@ type Turno struct {
 	Fin         string
 }
 
-func NuevoTurno(empleado string, nombre TipoTurno, area, fecha string) *Turno {
-	var inicio, fin, fechaFin string
+type RegistroTurnos []Turno // Lista de turnos asignados
 
-	switch nombre {
-	case Mañana:
-		inicio = string(InicioMañana)
-		fin = string(FinMañana)
-		fechaFin = fecha // Mismo día
-	case Tarde:
-		inicio = string(InicioTarde)
-		fin = string(FinTarde)
-		fechaFin = fecha // Mismo día
-	case Noche:
-		inicio = string(InicioNoche)
-		fin = string(FinNoche)
-		fechaFin = incrementarDia(fecha) // Día siguiente
-	default:
-		inicio, fin, fechaFin = "", "", fecha
+func NuevoTurno(empleado Empleado, nombre TipoTurno, area, fecha string) *Turno {
+
+	inicio, fin := horarios[nombre][0], horarios[nombre][1]
+	fechaFin := fecha
+
+	if nombre == Noche {
+		fechaFin = incrementarDia(fecha) // Día siguiente para turno nocturno
 	}
 
 	return &Turno{
