@@ -20,7 +20,7 @@ var horarios = map[TipoTurno][2]string{
 }
 
 type Turno struct {
-	Empleado    Empleado
+	Empleado    string
 	NombreTurno TipoTurno
 	Area        string
 	Fecha       string
@@ -28,9 +28,9 @@ type Turno struct {
 	Fin         string
 }
 
-type RegistroTurnos []Turno // Lista de turnos asignados
+var RegistroTurnos []Turno // Lista de turnos asignados
 
-func NuevoTurno(empleado Empleado, nombre TipoTurno, area, fecha string) *Turno {
+func NuevoTurno(empleado string, nombre TipoTurno, area, fecha string) *Turno {
 
 	inicio, fin := horarios[nombre][0], horarios[nombre][1]
 	fechaFin := fecha
