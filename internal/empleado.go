@@ -2,4 +2,4 @@ package health_scheduler
 
 type Empleado string
 
-var TurnosAsignados map[*Empleado][]Turno
+type TurnosAsignados map[*Empleado][]Turno
