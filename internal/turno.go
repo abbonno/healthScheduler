@@ -18,6 +18,10 @@ type Turno struct {
 	Fecha  time.Weekday
 }
 
+type Empleado string
+
+type TurnosAsignados map[*Empleado][]Turno
+
 func NuevoTurno(nombre TipoTurno, area string, fecha time.Weekday) *Turno {
 	return &Turno{
 		Nombre: nombre,
