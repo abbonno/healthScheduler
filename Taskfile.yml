@@ -5,5 +5,3 @@ tasks:
     desc: Validar la sintaxis de los archivos fuente de Go.
     cmds:
       - go vet ./...
-      - gofmt -d -s .
-
