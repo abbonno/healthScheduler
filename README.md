@@ -50,4 +50,7 @@ Documentación
 - ["User journeys"](.\docs\documentacion\user_journeys.md)
 - [Historias de Usuario](.\docs\documentacion\HU.md)
 - [Milestones](.\docs\documentacion\milestones.md)
+- [Gestor Dependencias](./docs/gestor_dependencias.md).
+- [Gestor Tareas](./docs/gestor_tareas.md).
   
+Tareas
