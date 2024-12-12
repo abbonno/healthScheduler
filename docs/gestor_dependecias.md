@@ -1,15 +1,7 @@
 # GESTOR DE DEPENDENCIAS
 
-## CRITERIOS DE SELECCIÓN OBJETIVOS
-
-    - 1. 
-    - 2. 
-    - 3. 
-
-## OPCIONES
-
-### VENTAJAS
-
-### DESVENTAJAS
+    En el caso del gestor de dependencias la elección es inmediata. Las buenas prácticas nos dicen que emplear las herramientas oficiales que tiene cada lenguaje es lo más recomendado. Es por esto que se elige *go mod* como gestor de tareas.
 
 ## SELECCIÓN FINAL
+
+    **GO MOD**
