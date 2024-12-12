@@ -1,0 +1,9 @@
+version: '3'
+
+tasks:
+  check:
+    desc: Validar la sintaxis de los archivos fuente de Go.
+    cmds:
+      - go vet ./...
+      - gofmt -d -s .
+

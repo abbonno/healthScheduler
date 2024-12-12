@@ -54,3 +54,5 @@ Documentación
 - [Gestor Tareas](./docs/gestor_tareas.md).
   
 Tareas
+
+- "task check": comprueba la sintaxis de los fuentes existentes
