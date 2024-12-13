@@ -6,8 +6,7 @@
 
     - 1. Se valorarán positivamente las herramientas que no añadan complejidad al proyecto (es preferible usar una específica, evitando aprender nuevos lenguajes, pero si es más complicado que escribir un comando sencillo en otro lenguaje se elegirá uno genérico).
     - 2. Actualizado: tendrán preferencia los gestores de dependencias que no hayan sido "abandonados" o no reciban modificaciones de forma habitual, por lo que tienen un buen mantenimiento. De la misma manera, aunque no sean actualizados continuamente serán bien consideradas las herramientas que se encuentren en etapas de desarrollo muy estables y, por lo tanto, sin errores críticos.
-    - 3. Herramienta concisa: sirve para lo que sirve, evitando lo especificado en los errores comunes *"Usar herramientas que hacen más cosas, incluso mucho más cosas, que verificar la sintaxis. Se trata simplemente de ver si el código compila o no compila, no si sigue las mejores prácticas y demás."*
-    - 4. Peso: si la herramienta necesita muchas dependencias externas u ocupa demasiado espacio en su instalación se verá reflejado negativamente. Además, es probable que, si añade mucho contenido no cumpla el criterio anterior.
+    - 3. Peso: si la herramienta necesita muchas dependencias externas u ocupa demasiado espacio en su instalación se verá reflejado negativamente. Además, es probable que, si añade mucho contenido no cumpla el criterio anterior.
 
 ## OPCIONES
 
