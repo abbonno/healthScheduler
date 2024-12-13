@@ -4,4 +4,4 @@
 
 ## SELECCIÓN FINAL
 
-    **GO MOD**
+    **go mod**
