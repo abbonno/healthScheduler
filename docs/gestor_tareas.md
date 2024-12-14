@@ -27,8 +27,25 @@
 
     Visto su github, task se actualiza constantemente desde hace, al menos, 7 años, con una comunidad bastante más activa que la de mage (aunque siga sin ser tan tradicionalmente empleada como make).
 
+### Buck2
+
+    Buck2 es la build tool desarrollada y usada por Meta. Está escrita en Rust y en su página principal remarcan el uso de ejecución remota y construcción incremental guardando en caché las instrucciones anteriormente compiladas.
+    Es una herramientam muy reciente, con solo dos años de desarrollo, aunque parte de buck1 que comenzó a ser desarrollada en 2014. Su comunidad es activa y recibe actualizaciones a diario.
+    La propia página oficial admite como desventaja su estabilidad: "Buck2 está en desarrollo activo, lo que significa que el riesgo de regresión es correspondientemente mayor. Puede haber problemas, pero se solucionarán lo más rápido posible (y se aprenderán lecciones) a través del proceso de revisión SEV de Meta."
+
+### Rake
+
+    Como otras herramientas a las que solo se cambia una letra a partir de "Make" (mage, rake, cake...), es un Make-like pero implementado en Ruby.
+    Su comunidad no es muy activa en comparación con las herramientas anteriores y esto sería justificable por el hecho de no tener que lidiar con muchos issues debido a su desarrollo anterior, habiendo comenzado en 2008.
+
+### Ninja
+
+    En el caso de Ninja, se trata de una herramienta programada a nivel de ensamblador, consiguiendo mucha más velocidad. Es más minimalista pero más optimizado que, por ejemplo,Make.
+    Es un proyecto bastante actualizado desde 2012 y, aunque sus cambios se hayan frenado, sigue teniendo un desarrollo activo a día de hoy.
+
 ## SELECCIÓN FINAL
 
 Se ha elegido, finalmente, la herramienta **Task** por las siguientes razones.
-Con respecto a **Mage**, se ha optado darle prioridad al criterio de mantenimiento porque el riesgo de que la herramienta caiga en abandono puede causar errores.
-Por el resto, entre **Make** y **Task** ambas son buenas opciones, por lo que se elige, a criterio propio, **Task**.
+Con respecto a **Mage**, se ha optado darle prioridad al criterio de mantenimiento porque el riesgo de que la herramienta caiga en abandono puede causar errores. Algo parecido ocurre con **Rake** que, a pesar de tener cierta madurez, parece un proyecto algo inactivo.
+Con **Buck2** pasa al revés, que aún es muy nuevo y se debate con la estabilidad que pueda ofrecer.
+Por el resto, entre **Make**, **Ninja** y **Task** todas son buenas opciones, por lo que se elige, a criterio propio, **Task**.
