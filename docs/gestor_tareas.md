@@ -33,7 +33,6 @@ Visto su github, task se actualiza constantemente desde hace, al menos, 7 años,
 Buck2 es la build tool desarrollada y usada por Meta. Está escrita en Rust y en su página principal remarcan el uso de ejecución remota y construcción incremental guardando en caché las instrucciones anteriormente compiladas.
 Es una herramientam muy reciente, con solo dos años de desarrollo, aunque parte de buck1 que comenzó a ser desarrollada en 2014. Su comunidad es activa y recibe actualizaciones a diario.
 La propia página oficial admite como desventaja su estabilidad: "Buck2 está en desarrollo activo, lo que significa que el riesgo de regresión es correspondientemente mayor. Puede haber problemas, pero se solucionarán lo más rápido posible (y se aprenderán lecciones) a través del proceso de revisión SEV de Meta."
-munidad no es muy activa en comparación con las herramientas anteriores y esto sería justificable por el hecho de no tener que lidiar con muchos issues debido a su desarrollo anterior, habiendo comenzado en 2008.
 
 ### [Ninja](https://ninja-build.org/)
 
