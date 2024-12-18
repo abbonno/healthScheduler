@@ -28,20 +28,20 @@ Desde el mismo foro se habla de Task. Este, igualmente, según su documentación
 
 Visto su github, task se actualiza constantemente desde hace, al menos, 7 años, con una comunidad bastante más activa que la de mage (aunque siga sin ser tan tradicionalmente empleada como make).
 
-### [Buck2](https://buck2.build/)
+### [Ansible](https://github.com/ansible/ansible)
 
-Buck2 es la build tool desarrollada y usada por Meta. Está escrita en Rust y en su página principal remarcan el uso de ejecución remota y construcción incremental guardando en caché las instrucciones anteriormente compiladas.
-Es una herramientam muy reciente, con solo dos años de desarrollo, aunque parte de buck1 que comenzó a ser desarrollada en 2014. Su comunidad es activa y recibe actualizaciones a diario.
-La propia página oficial admite como desventaja su estabilidad: "Buck2 está en desarrollo activo, lo que significa que el riesgo de regresión es correspondientemente mayor. Puede haber problemas, pero se solucionarán lo más rápido posible (y se aprenderán lecciones) a través del proceso de revisión SEV de Meta."
+Ansible maneja "gestión de configuración, despliegue de aplicaciones, aprovisionamiento en la nube, ejecución de tareas, automatización en la red y orquestación de múltiples nodos" mediante archivos yaml en los que especificamos las tareas.
+Es una herramienta con una gran comunidad detrás y actualizaciones constantes desde 2012.
 
-### [Ninja](https://ninja-build.org/)
+### [Goyek](https://github.com/goyek/goyek)
 
-En el caso de Ninja, se trata de una herramienta programada a nivel de ensamblador, consiguiendo mucha más velocidad. Es más minimalista pero más optimizado que, por ejemplo,Make.
-Es un proyecto bastante actualizado desde 2012 y, aunque sus cambios se hayan frenado, sigue teniendo un desarrollo activo a día de hoy.
+Se trata de una librería de automatización de tareas en go que permite organizar flujos de trabajo mediante funciones de este lenguaje.
+Como proyecto es bastante simple y con muchos menos colaboradores, por ende, con menos mantenimiento. Además tiene su origen en 2021.
 
 ## SELECCIÓN FINAL
 
 Se ha elegido, finalmente, la herramienta **Task** por las siguientes razones.
-Con respecto a **Mage**, se ha optado darle prioridad al criterio de mantenimiento porque el riesgo de que la herramienta caiga en abandono puede causar errores. Algo parecido ocurre con **Rake** que, a pesar de tener cierta madurez, parece un proyecto algo inactivo.
+Con respecto a **Mage**, se ha optado darle prioridad al criterio de mantenimiento porque el riesgo de que la herramienta caiga en abandono puede causar errores.
 Con **Buck2** pasa al revés, que aún es muy nuevo y se debate con la estabilidad que pueda ofrecer.
-Por el resto, entre **Make**, **Ninja** y **Task** todas son buenas opciones, por lo que se elige, a criterio propio, **Task**.
+Sobre **Goyek**, al ser un proyecto poco pulido y con poca esperanza en su futuro desarrollo se queda atrás del resto de herramientas.
+Por el resto, entre **Make**, **Ansible** y **Task** todas son buenas opciones, por lo que se elige, a criterio propio, **Task**.
