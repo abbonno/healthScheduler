@@ -17,21 +17,22 @@ Como ventaja, make es un proyecto desarrollado desde los 70, con una madurez má
 
 ### [Mage](https://magefile.org/)
 
-Como alternativa a Make, en muchos foros se recomienda Mage. Mage es un reemplazo para Make que utiliza Go puro para definir y ejecutar tareas. No requiere un archivo Makefile ni otra sintaxis externa.
+Como alternativa a Make, se recomienda Mage. Mage utiliza Go puro para definir y ejecutar tareas. No requiere un archivo Makefile ni otra sintaxis externa.
 
 Respecto a su mantenimiento, el último commit fue realizado hace dos semanas y se puede ver que el proyecto es actualizado a menudo.
 Sin embargo, y aunque la popularidad de una herramienta no sea un criterio de selección válido, en este caso lo pequeño de su comunidad puede suponer un problema a largo plazo, puesto que se trata de una herramienta de código abierto. Esto puede deparar en un mantenimiento pobre.
 
 ### [Task](https://taskfile.dev/)
 
-Desde el mismo foro se habla de Task. Este, igualmente, según su documentación, dice diferenciarse de make por su simplicidad.
+Task, igualmente, según su documentación, dice diferenciarse de make por su simplicidad.
 
 Visto su github, task se actualiza constantemente desde hace, al menos, 7 años, con una comunidad bastante más activa que la de mage (aunque siga sin ser tan tradicionalmente empleada como make).
 
-### [Ansible](https://github.com/ansible/ansible)
+### [Just](https://github.com/casey/just)
 
-Ansible maneja "gestión de configuración, despliegue de aplicaciones, aprovisionamiento en la nube, ejecución de tareas, automatización en la red y orquestación de múltiples nodos" mediante archivos yaml en los que especificamos las tareas.
-Es una herramienta con una gran comunidad detrás y actualizaciones constantes desde 2012.
+En Just los comandos, llamados recetas, son almacenados en archivos "justfile" con sintásis inspirada en "make".
+
+Es una herramienta desarrollada desde 2017 y con un mantenimiento constante hasta día de hoy.
 
 ### [Goyek](https://github.com/goyek/goyek)
 
@@ -44,4 +45,4 @@ Se ha elegido, finalmente, la herramienta **Task** por las siguientes razones.
 Con respecto a **Mage**, se ha optado darle prioridad al criterio de mantenimiento porque el riesgo de que la herramienta caiga en abandono puede causar errores.
 Con **Buck2** pasa al revés, que aún es muy nuevo y se debate con la estabilidad que pueda ofrecer.
 Sobre **Goyek**, al ser un proyecto poco pulido y con poca esperanza en su futuro desarrollo se queda atrás del resto de herramientas.
-Por el resto, entre **Make**, **Ansible** y **Task** todas son buenas opciones, por lo que se elige, a criterio propio, **Task**.
+Por el resto, entre **Make**, **Just** y **Task** todas son buenas opciones, por lo que se elige, a criterio propio, **Task**.
