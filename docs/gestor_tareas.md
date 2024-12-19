@@ -19,14 +19,14 @@ Como ventaja, make es un proyecto desarrollado desde los 70, con una madurez má
 
 Como alternativa a Make, se recomienda Mage. Mage utiliza Go puro para definir y ejecutar tareas. No requiere un archivo Makefile ni otra sintaxis externa.
 
-Respecto a su mantenimiento, el último commit fue realizado hace dos semanas y se puede ver que el proyecto es actualizado a menudo.
+Respecto a su mantenimiento, el último commit fue realizado hace dos semanas y se puede ver que el [proyecto es actualizado a menudo](https://github.com/magefile/mage).
 Sin embargo, y aunque la popularidad de una herramienta no sea un criterio de selección válido, en este caso lo pequeño de su comunidad puede suponer un problema a largo plazo, puesto que se trata de una herramienta de código abierto. Esto puede deparar en un mantenimiento pobre.
 
 ### [Task](https://taskfile.dev/)
 
 Task, igualmente, según su documentación, dice diferenciarse de make por su simplicidad.
 
-Visto su github, task se actualiza constantemente desde hace, al menos, 7 años, con una comunidad bastante más activa que la de mage (aunque siga sin ser tan tradicionalmente empleada como make).
+Visto [su github](https://github.com/go-task/task) , task se actualiza constantemente desde hace, al menos, 7 años, con una comunidad bastante más activa que la de mage (aunque siga sin ser tan tradicionalmente empleada como make).
 
 ### [Just](https://github.com/casey/just)
 
