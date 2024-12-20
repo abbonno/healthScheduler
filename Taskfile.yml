@@ -4,4 +4,4 @@ tasks:
   check:
     desc: Validar la sintaxis de los archivos fuente de Go.
     cmds:
-      - go vet ./...
+      - gofmt -e internal/turnos-asignados.go 
