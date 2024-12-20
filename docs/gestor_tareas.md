@@ -37,7 +37,7 @@ Es una herramienta desarrollada desde 2017 y con un mantenimiento constante hast
 ### [Goyek](https://github.com/goyek/goyek)
 
 Se trata de una librería de automatización de tareas en go que permite organizar flujos de trabajo mediante funciones de este lenguaje.
-Como proyecto es bastante simple y con muchos menos colaboradores, por ende, con menos mantenimiento. Además tiene su origen en 2021.
+Como proyecto es bastante simple y con muchos menos colaboradores, por ende, con menos mantenimiento. Además tiene su origen en 2021, de modo que, con 3 años el desarrollo es poco avanzado en comparación con las otras herramientas.
 
 ## SELECCIÓN FINAL
 
