@@ -1,3 +1,6 @@
 lenguaje: Go
 
 entidad: internal/turnos-asignados.go
+automatizar:
+  fichero: Taskfile.yml
+  orden: task

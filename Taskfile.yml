@@ -1,0 +1,7 @@
+version: '3'
+
+tasks:
+  check:
+    desc: Validar la sintaxis de los archivos fuente de Go.
+    cmds:
+      - gofmt -e internal/turnos-asignados.go 
