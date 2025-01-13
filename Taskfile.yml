@@ -8,5 +8,4 @@ tasks:
   test:
     desc: Ejecutar los tests.
     cmds:
-      - echo "Tests aún por crear"
-      - go test ./internal/...
+      - go test -v ./internal

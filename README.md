@@ -58,4 +58,4 @@ Documentación
 Tareas
 
 - "task check": comprueba la sintaxis de los fuentes existentes
-- "task test": ejecuta los tests (aún por crear)
+- "task test": ejecuta los tests
