@@ -64,3 +64,12 @@ func GenerarPlanAnual(enfermeros []Empleado) (TurnosAsignados, error) {
 
 	return turnosAsignados, nil
 }
+
+func MostrarTurnosEnfermero(plan TurnosAsignados, enfermero *Empleado) string {
+	turnos := plan[enfermero]
+	var resultado string
+	for _, turno := range turnos {
+		resultado += "Fecha: " + turno.Fecha.Format("02-01-2006") + ", Turno: " + string(turno.Nombre) + ", Área: " + turno.Area + "\n"
+	}
+	return resultado
+}
