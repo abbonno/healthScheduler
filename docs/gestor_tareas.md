@@ -37,12 +37,11 @@ Es una herramienta desarrollada desde 2017 y con un mantenimiento constante hast
 ### [Goyek](https://github.com/goyek/goyek)
 
 Se trata de una librería de automatización de tareas en go que permite organizar flujos de trabajo mediante funciones de este lenguaje.
-Como proyecto es bastante simple y con muchos menos colaboradores, por ende, con menos mantenimiento. Además tiene su origen en 2021.
+Como proyecto es bastante simple y con muchos menos colaboradores, por ende, con menos mantenimiento. Además tiene su origen en 2021, de modo que, con 3 años el desarrollo es poco avanzado en comparación con las otras herramientas.
 
 ## SELECCIÓN FINAL
 
 Se ha elegido, finalmente, la herramienta **Task** por las siguientes razones.
 Con respecto a **Mage**, se ha optado darle prioridad al criterio de mantenimiento porque el riesgo de que la herramienta caiga en abandono puede causar errores.
-Con **Buck2** pasa al revés, que aún es muy nuevo y se debate con la estabilidad que pueda ofrecer.
 Sobre **Goyek**, al ser un proyecto poco pulido y con poca esperanza en su futuro desarrollo se queda atrás del resto de herramientas.
 Por el resto, entre **Make**, **Just** y **Task** todas son buenas opciones, por lo que se elige, a criterio propio, **Task**.
