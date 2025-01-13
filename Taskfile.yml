@@ -5,3 +5,8 @@ tasks:
     desc: Validar la sintaxis de los archivos fuente de Go.
     cmds:
       - go vet ./...
+  test:
+    desc: Ejecutar los tests.
+    cmds:
+      - echo "Tests aún por crear"
+      - go test ./internal/...
