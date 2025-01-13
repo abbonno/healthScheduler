@@ -65,7 +65,7 @@ func GenerarPlanAnual(enfermeros []Empleado) (TurnosAsignados, error) {
 	return turnosAsignados, nil
 }
 
-func MostrarTurnosEnfermero(plan TurnosAsignados, enfermero *Empleado) string {
+func MostrarTurnosEnfermero(enfermero *Empleado, plan TurnosAsignados) string {
 	turnos := plan[enfermero]
 	var resultado string
 	for _, turno := range turnos {
