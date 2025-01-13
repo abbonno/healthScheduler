@@ -4,27 +4,23 @@
 
 Se emplearán los siguientes criterios en la búsqueda y selección de una de las bibliotecas de aserciones empleadas en nuestro proyecto.
 
-- Mantenimiento: se actualiza frecuentemente.
+- Mantenimiento: se actualiza frecuentemente. También se empleará la plataforma ["snyk Advisor"](https://snyk.io/advisor/golang) que mide el grado de "health" o salud de una herramienta dado su estado de mantenimiento.
 - Estándar: en caso de que el anterior factor no sea claramente decisivo, se optará por elegir la herramienta que cumple el estándar del lenguaje elegido.
 
 ## OPCIONES
 
 ### [Gomega](https://github.com/onsi/gomega)
 
-Gomega se apoya en Ginkgo para su uso, por lo que ambos proyectos se mantienen a la par (se actualiza frecuentemente).
+Gomega se apoya en Ginkgo para su uso, por lo que ambos proyectos se mantienen a la par (se actualiza frecuentemente). Se coloca en la última revisión con una alta puntuación "health" de 96 sobre 100.
 
 ### [Testify](https://github.com/stretchr/testify)
 
-Es actualizado con mucha constancia desde 2014.
+Es actualizado con mucha constancia desde 2014. No encontramos entradas sobre el proyecto original testify en snyk Advisor (existen entradas de baja puntuación sobre algunos forks de sus colaboradores, pero no sirven para juzgar el proyecto completo).
 
 ### [Paquete gotest.tools/assert](https://github.com/gotestyourself/gotest.tools)
 
-Se trata de una librería moderna de aserciones entre las herramientas de gotest.tools, pero tiene un mantenimiento un poco inestable.
-
-### Estándar (con el paquete testing)
-
-La propia herramienta de testing estándar de Golang ofrece la posibilidad de realizar validaciones.
+Se trata de una librería moderna de aserciones entre las herramientas de gotest.tools, pero tiene un mantenimiento un poco inestable. No existe una entrada para puntuar la herramienta en snyk Advisor, por lo que no se puede juzgar mediante este parámetro.
 
 ## SELECCIÓN FINAL
 
-Siguiendo los criterios se optará por emplear las aserciones que ofrece el estándar de Golang.
+Siguiendo los criterios se optará por emplear el estándar de Golang. La propia herramienta de testing estándar de Golang ofrece la posibilidad de realizar validaciones, suficientes para realizar la función de las aserciones.
