@@ -24,17 +24,12 @@ type Empleado string
 
 type TurnosAsignados map[*Empleado][]Turno
 
-func NuevoTurno(nombre TipoTurno, area string, fecha time.Time) *Turno {
-	return &Turno{
-		Nombre: nombre,
-		Area:   area,
-		Fecha:  fecha,
-	}
-}
+const totalAreas = 10
+const diasAnio = 365
 
 func GenerarPlanSemanal(enfermeros []Empleado) (TurnosAsignados, error) {
 	totalEmpleados := len(enfermeros)
-	if totalEmpleados < 10 {
+	if totalEmpleados < totalAreas {
 		return nil, errors.New("Hacen falta, al menos, 10 enfermeros, introducidos: " + fmt.Sprint(totalEmpleados))
 	}
 
@@ -44,9 +39,8 @@ func GenerarPlanSemanal(enfermeros []Empleado) (TurnosAsignados, error) {
 	indiceEnfermero := 0
 	fechaActual := time.Now()
 
-	// Generar turnos para los próximos 365 días
-	for i := 0; i < 365; i++ {
-		fecha := fechaActual.AddDate(0, 0, i) // Incrementar la fecha día a día
+	for i := 0; i < diasAnio; i++ {
+		fecha := fechaActual.AddDate(0, 0, i)
 
 		for _, tipoTurno := range tiposTurno {
 			for _, area := range areas {

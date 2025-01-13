@@ -5,47 +5,20 @@ import (
 	"time"
 )
 
-func TestNuevoTurno(t *testing.T) {
-	// Datos de entrada
-	nombre := Mañana
-	area := "Urgencias"
-	fecha := time.Now()
-
-	// Llamada al constructor
-	turno := NuevoTurno(nombre, area, fecha)
-
-	// Aserciones
-	if turno.Nombre != nombre {
-		t.Errorf("Error: Nombre del turno = %s; esperado = %s", turno.Nombre, nombre)
-	}
-
-	if turno.Area != area {
-		t.Errorf("Error: Área del turno = %s; esperado = %s", turno.Area, area)
-	}
-
-	if turno.Fecha != fecha {
-		t.Errorf("Error: Fecha del turno = %v; esperado = %v", turno.Fecha, fecha)
-	}
-}
-
 func TestGenerarPlanSemanal(t *testing.T) {
-	// Crear lista de enfermeros
 	enfermeros := []Empleado{
 		"Enfermero1", "Enfermero2", "Enfermero3", "Enfermero4", "Enfermero5",
 		"Enfermero6", "Enfermero7", "Enfermero8", "Enfermero9", "Enfermero10",
 		"Enfermero11", "Enfermero12", "Enfermero13", "Enfermero14", "Enfermero15",
 	}
 
-	// Generar el plan anual
 	plan, err := GenerarPlanSemanal(enfermeros)
 	if err != nil {
 		t.Fatalf("Error generando el plan anual: %v", err)
 	}
 
-	// Estructura para rastrear ocupación de áreas
 	turnosPorDia := make(map[time.Time]map[TipoTurno]map[string]bool)
 
-	// Primera verificación: que no haya áreas duplicadas
 	for _, turnos := range plan {
 		for _, turno := range turnos {
 			if turnosPorDia[turno.Fecha] == nil {
@@ -62,10 +35,9 @@ func TestGenerarPlanSemanal(t *testing.T) {
 		}
 	}
 
-	// Segunda verificación: que no haya áreas sin cubrir
 	for dia, turnos := range turnosPorDia {
 		for turno, areas := range turnos {
-			if len(areas) < 10 {
+			if len(areas) < totalAreas {
 				t.Errorf("Faltan áreas en el turno %v del día %v: solo hay %d áreas cubiertas", turno, dia, len(areas))
 			}
 			for area, ocupada := range areas {
@@ -78,11 +50,9 @@ func TestGenerarPlanSemanal(t *testing.T) {
 }
 
 func TestGetTurnosEnfermero(t *testing.T) {
-	// Crear empleados
 	enfermero1 := Empleado("Enfermero1")
 	enfermero2 := Empleado("Enfermero2")
 
-	// Crear plan semanal manualmente con datos de ejemplo
 	planSemanal := TurnosAsignados{
 		&enfermero1: {
 			{Fecha: time.Now(), Area: "Área1", Nombre: Mañana},
@@ -94,22 +64,18 @@ func TestGetTurnosEnfermero(t *testing.T) {
 		},
 	}
 
-	// Probar con el enfermero1
 	turnos := GetTurnosEnfermero(&enfermero1, planSemanal)
 
-	// Verificar que los turnos asignados no estén vacíos
 	if len(turnos) == 0 {
 		t.Errorf("El enfermero %s no tiene turnos asignados", enfermero1)
 	}
 
-	// Comprobar que los turnos asignados son válidos
 	for _, turno := range turnos {
 		if turno.Area == "" || turno.Nombre == "" || turno.Fecha.String() == "" {
 			t.Errorf("Turno inválido encontrado: %+v", turno)
 		}
 	}
 
-	// Probar con un enfermero sin turnos asignados
 	enfermeroNoAsignado := Empleado("EnfermeroSinTurnos")
 	turnosSinAsignar := GetTurnosEnfermero(&enfermeroNoAsignado, planSemanal)
 
@@ -119,7 +85,6 @@ func TestGetTurnosEnfermero(t *testing.T) {
 }
 
 func TestTurnosToString(t *testing.T) {
-	// Crear un turno de prueba
 	fecha := time.Date(2025, time.January, 13, 0, 0, 0, 0, time.UTC)
 	turnos := []Turno{
 		{
@@ -129,13 +94,10 @@ func TestTurnosToString(t *testing.T) {
 		},
 	}
 
-	// Llamar a la función TurnosToString
 	resultado := TurnosToString(turnos)
 
-	// Definir la cadena esperada
 	esperado := "Fecha: 13-01-2025, Turno: Mañana, Área: A1\n"
 
-	// Verificar si el resultado es el esperado
 	if resultado != esperado {
 		t.Errorf("Resultado inesperado: got %v, want %v", resultado, esperado)
 	}
