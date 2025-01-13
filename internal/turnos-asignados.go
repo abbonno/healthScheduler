@@ -21,3 +21,5 @@ type Turno struct {
 type Empleado string
 
 type TurnosAsignados map[*Empleado][]Turno
+
+const diasAnio = 365
