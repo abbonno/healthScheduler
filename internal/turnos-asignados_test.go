@@ -51,10 +51,8 @@ func TestAreaSinOcupar(t *testing.T) {
 	areas := []string{"Área1", "Área2", "Área3", "Área4", "Área5", "Área6", "Área7", "Área8", "Área9", "Área10"}
 	tiposTurno := []TipoTurno{Mañana, Tarde, Noche}
 
-	// Crear un mapa para verificar las áreas ocupadas
 	ocupacion := make(map[time.Time]map[TipoTurno]map[string]bool)
 
-	// Recorrer los turnos asignados y marcar las áreas como ocupadas
 	for _, turnos := range turnosAsignados {
 		for _, turno := range turnos {
 			if ocupacion[turno.Fecha] == nil {
@@ -67,7 +65,6 @@ func TestAreaSinOcupar(t *testing.T) {
 		}
 	}
 
-	// Verificar que todas las áreas están ocupadas para cada día y turno
 	fechaInicio := time.Now()
 	for i := 0; i < diasAnio; i++ {
 		fecha := fechaInicio.AddDate(0, 0, i)
