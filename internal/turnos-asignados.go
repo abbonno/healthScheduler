@@ -3,7 +3,6 @@ package health_scheduler
 import (
 	"errors"
 	"fmt"
-	"time"
 )
 
 type TipoTurno string
@@ -17,7 +16,7 @@ const (
 type Turno struct {
 	Nombre TipoTurno
 	Area   string
-	Fecha  time.Time
+	Fecha  Fecha
 }
 
 type Empleado string
@@ -37,10 +36,10 @@ func GenerarPlanAnual(enfermeros []Empleado) (TurnosAsignados, error) {
 	areas := []string{"Área1", "Área2", "Área3", "Área4", "Área5", "Área6", "Área7", "Área8", "Área9", "Área10"}
 	tiposTurno := []TipoTurno{Mañana, Tarde, Noche}
 	indiceEnfermero := 0
-	fechaActual := time.Now()
+	fecha, _ := FechaActual()
 
 	for i := 0; i < diasPlan; i++ {
-		fecha := fechaActual.AddDate(0, 0, i)
+		fecha = SumarDía(fecha)
 
 		for _, tipoTurno := range tiposTurno {
 			for _, area := range areas {
@@ -69,7 +68,7 @@ func MostrarTurnosEnfermero(enfermero *Empleado, plan TurnosAsignados) string {
 	turnos := plan[enfermero]
 	var resultado string
 	for _, turno := range turnos {
-		resultado += "Fecha: " + turno.Fecha.Format("02-01-2006") + ", Turno: " + string(turno.Nombre) + ", Área: " + turno.Area + "\n"
+		resultado += "Fecha: " + turno.Fecha.String() + ", Turno: " + string(turno.Nombre) + ", Área: " + turno.Area + "\n"
 	}
 	return resultado
 }
