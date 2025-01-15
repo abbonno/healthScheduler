@@ -1,16 +1,22 @@
 package health_scheduler
 
 import (
+	"strconv"
 	"testing"
 	"time"
 )
 
 func TestAreaOcupadaDoblemente(t *testing.T) {
-	enfermeros := []Empleado{
-		"Enfermero1", "Enfermero2", "Enfermero3", "Enfermero4", "Enfermero5",
-		"Enfermero6", "Enfermero7", "Enfermero8", "Enfermero9", "Enfermero10",
-		"Enfermero11", "Enfermero12", "Enfermero13", "Enfermero14", "Enfermero15",
-	}
+	totalEnfermeros := 15
+	enfermeros := func() []Empleado {
+		base := "Enfermero"
+		result := make([]Empleado, totalEnfermeros)
+		for i := 1; i <= totalEnfermeros; i++ {
+			e := Empleado(base + strconv.Itoa(i))
+			result[i-1] = e
+		}
+		return result
+	}()
 
 	plan, err := GenerarPlanAnual(enfermeros)
 	if err != nil {
@@ -37,11 +43,16 @@ func TestAreaOcupadaDoblemente(t *testing.T) {
 }
 
 func TestAreaSinOcupar(t *testing.T) {
-	enfermeros := []Empleado{
-		"Enfermero1", "Enfermero2", "Enfermero3", "Enfermero4", "Enfermero5",
-		"Enfermero6", "Enfermero7", "Enfermero8", "Enfermero9", "Enfermero10",
-		"Enfermero11", "Enfermero12", "Enfermero13", "Enfermero14", "Enfermero15",
-	}
+	totalEnfermeros := 15
+	enfermeros := func() []Empleado {
+		base := "Enfermero"
+		result := make([]Empleado, totalEnfermeros)
+		for i := 1; i <= totalEnfermeros; i++ {
+			e := Empleado(base + strconv.Itoa(i))
+			result[i-1] = e
+		}
+		return result
+	}()
 
 	turnosAsignados, err := GenerarPlanAnual(enfermeros)
 	if err != nil {

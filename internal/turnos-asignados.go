@@ -3,6 +3,7 @@ package health_scheduler
 import (
 	"errors"
 	"fmt"
+	"strconv"
 )
 
 type TipoTurno string
@@ -33,14 +34,20 @@ func GenerarPlanAnual(enfermeros []Empleado) (TurnosAsignados, error) {
 	}
 
 	turnosAsignados := make(map[*Empleado][]Turno)
-	areas := []string{"Área1", "Área2", "Área3", "Área4", "Área5", "Área6", "Área7", "Área8", "Área9", "Área10"}
-	tiposTurno := []TipoTurno{Mañana, Tarde, Noche}
-	indiceEnfermero := 0
+
 	fecha, _ := FechaActual()
+	tiposTurno := []TipoTurno{Mañana, Tarde, Noche}
+	areas := func() []string {
+		base := "Área"
+		result := make([]string, totalAreas)
+		for i := 1; i <= totalAreas; i++ {
+			result[i-1] = base + strconv.Itoa(i)
+		}
+		return result
+	}()
+	indiceEnfermero := 0
 
 	for i := 0; i < diasPlan; i++ {
-		fecha = SumarDía(fecha)
-
 		for _, tipoTurno := range tiposTurno {
 			for _, area := range areas {
 				empleado := &enfermeros[indiceEnfermero]
@@ -59,6 +66,7 @@ func GenerarPlanAnual(enfermeros []Empleado) (TurnosAsignados, error) {
 				indiceEnfermero = (indiceEnfermero + 1) % totalEmpleados
 			}
 		}
+		fecha = SumarDía(fecha)
 	}
 
 	return turnosAsignados, nil
