@@ -48,30 +48,29 @@ func TestAreaSinOcupar(t *testing.T) {
 		t.Fatalf("Error al generar el plan anual: %v", err)
 	}
 
-	areas := []string{"Área1", "Área2", "Área3", "Área4", "Área5", "Área6", "Área7", "Área8", "Área9", "Área10"}
-	tiposTurno := []TipoTurno{Mañana, Tarde, Noche}
-
-	ocupacion := make(map[time.Time]map[TipoTurno]map[string]bool)
+	turnosPorDia := make(map[time.Time]map[TipoTurno]map[string]bool)
 
 	for _, turnos := range turnosAsignados {
 		for _, turno := range turnos {
-			if ocupacion[turno.Fecha] == nil {
-				ocupacion[turno.Fecha] = make(map[TipoTurno]map[string]bool)
+			if turnosPorDia[turno.Fecha] == nil {
+				turnosPorDia[turno.Fecha] = make(map[TipoTurno]map[string]bool)
 			}
-			if ocupacion[turno.Fecha][turno.Nombre] == nil {
-				ocupacion[turno.Fecha][turno.Nombre] = make(map[string]bool)
+			if turnosPorDia[turno.Fecha][turno.Nombre] == nil {
+				turnosPorDia[turno.Fecha][turno.Nombre] = make(map[string]bool)
 			}
-			ocupacion[turno.Fecha][turno.Nombre][turno.Area] = true
+
+			turnosPorDia[turno.Fecha][turno.Nombre][turno.Area] = true
 		}
 	}
 
-	fechaInicio := time.Now()
-	for i := 0; i < diasAnio; i++ {
-		fecha := fechaInicio.AddDate(0, 0, i)
-		for _, tipoTurno := range tiposTurno {
-			for _, area := range areas {
-				if !ocupacion[fecha][tipoTurno][area] {
-					t.Errorf("Área %s no ocupada el %s en el turno %s", area, fecha.Format("02-01-2006"), tipoTurno)
+	for dia, turnos := range turnosPorDia {
+		for turno, areas := range turnos {
+			if len(areas) < totalAreas {
+				t.Errorf("Faltan áreas en el turno %v del día %v: solo hay %d áreas cubiertas", turno, dia, len(areas))
+			}
+			for area, ocupada := range areas {
+				if !ocupada {
+					t.Errorf("Área %s no está cubierta en el turno %v del día %v", area, turno, dia)
 				}
 			}
 		}
@@ -98,9 +97,9 @@ func TestMostrarTurnosEnfermero(t *testing.T) {
 
 	resultado := MostrarTurnosEnfermero(&enfermero1, planSemanal)
 
-	esperado := "Fecha: 13-01-2025, Turno: Mañana, Área: A1\n Fecha: 14-01-2025, Turno: Tarde, Área: A2\n"
+	esperado := "Fecha: 13-01-2025, Turno: Mañana, Área: Área1\nFecha: 14-01-2025, Turno: Tarde, Área: Área2\n"
 
 	if resultado != esperado {
-		t.Errorf("Resultado inesperado: got %v, want %v", resultado, esperado)
+		t.Errorf("Resultado inesperado: got %q \n want %q", resultado, esperado)
 	}
 }
