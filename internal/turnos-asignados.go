@@ -25,7 +25,7 @@ type Empleado string
 type TurnosAsignados map[*Empleado][]Turno
 
 const totalAreas = 10
-const diasAnio = 365
+const diasPlan = 365
 
 func GenerarPlanAnual(enfermeros []Empleado) (TurnosAsignados, error) {
 	totalEmpleados := len(enfermeros)
@@ -39,7 +39,7 @@ func GenerarPlanAnual(enfermeros []Empleado) (TurnosAsignados, error) {
 	indiceEnfermero := 0
 	fechaActual := time.Now()
 
-	for i := 0; i < diasAnio; i++ {
+	for i := 0; i < diasPlan; i++ {
 		fecha := fechaActual.AddDate(0, 0, i)
 
 		for _, tipoTurno := range tiposTurno {
