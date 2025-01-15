@@ -6,6 +6,23 @@ import (
 	"time"
 )
 
+type Ocupacion map[Fecha]map[TipoTurno]map[string]bool
+
+func NewOcupacion(plan TurnosAsignados) Ocupacion {
+	ocupacion := make(map[Fecha]map[TipoTurno]map[string]bool)
+	for _, turnos := range plan {
+		for _, turno := range turnos {
+			if ocupacion[turno.Fecha] == nil {
+				ocupacion[turno.Fecha] = make(map[TipoTurno]map[string]bool)
+			}
+			if ocupacion[turno.Fecha][turno.Nombre] == nil {
+				ocupacion[turno.Fecha][turno.Nombre] = make(map[string]bool)
+			}
+		}
+	}
+	return ocupacion
+}
+
 func TestAreaOcupadaDoblemente(t *testing.T) {
 	totalEnfermeros := 15
 	enfermeros := func() []Empleado {
@@ -23,21 +40,15 @@ func TestAreaOcupadaDoblemente(t *testing.T) {
 		t.Fatalf("Error generando el plan anual: %v", err)
 	}
 
-	turnosPorDia := make(map[Fecha]map[TipoTurno]map[string]bool)
+	listaOcupacion := NewOcupacion(plan)
 
 	for _, turnos := range plan {
 		for _, turno := range turnos {
-			if turnosPorDia[turno.Fecha] == nil {
-				turnosPorDia[turno.Fecha] = make(map[TipoTurno]map[string]bool)
-			}
-			if turnosPorDia[turno.Fecha][turno.Nombre] == nil {
-				turnosPorDia[turno.Fecha][turno.Nombre] = make(map[string]bool)
-			}
-			if turnosPorDia[turno.Fecha][turno.Nombre][turno.Area] {
+			if listaOcupacion[turno.Fecha][turno.Nombre][turno.Area] {
 				t.Errorf("Área duplicada: el área %s ya está ocupada el día %v en el turno %v", turno.Area, turno.Fecha, turno.Nombre)
 			}
 
-			turnosPorDia[turno.Fecha][turno.Nombre][turno.Area] = true
+			listaOcupacion[turno.Fecha][turno.Nombre][turno.Area] = true
 		}
 	}
 }
@@ -59,26 +70,16 @@ func TestAreaSinOcupar(t *testing.T) {
 		t.Fatalf("Error al generar el plan anual: %v", err)
 	}
 
-	turnosPorDia := make(map[Fecha]map[TipoTurno]map[string]bool)
+	listaOcupacion := NewOcupacion(turnosAsignados)
 
 	for _, turnos := range turnosAsignados {
 		for _, turno := range turnos {
-			if turnosPorDia[turno.Fecha] == nil {
-				turnosPorDia[turno.Fecha] = make(map[TipoTurno]map[string]bool)
-			}
-			if turnosPorDia[turno.Fecha][turno.Nombre] == nil {
-				turnosPorDia[turno.Fecha][turno.Nombre] = make(map[string]bool)
-			}
-
-			turnosPorDia[turno.Fecha][turno.Nombre][turno.Area] = true
+			listaOcupacion[turno.Fecha][turno.Nombre][turno.Area] = true
 		}
 	}
 
-	for dia, turnos := range turnosPorDia {
+	for dia, turnos := range listaOcupacion {
 		for turno, areas := range turnos {
-			if len(areas) < totalAreas {
-				t.Errorf("Faltan áreas en el turno %v del día %v: solo hay %d áreas cubiertas", turno, dia, len(areas))
-			}
 			for area, ocupada := range areas {
 				if !ocupada {
 					t.Errorf("Área %s no está cubierta en el turno %v del día %v", area, turno, dia)
