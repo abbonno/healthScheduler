@@ -11,11 +11,11 @@ Se emplearán los siguientes criterios en la búsqueda y selección de un test r
 
 ### [Ginkgo](https://github.com/onsi/ginkgo)
 
-En su repositorio es común observar commits y modificaciones por lo que se encuentra en mantenimiento constante. No existe información en snyk Advisor, por lo que no se puede juzgar mediante este parámetro.
+En su repositorio es común observar commits y modificaciones por lo que se encuentra en mantenimiento constante. Se data de 109 commits el último mes, como prueba de ello. No existe información en snyk Advisor, por lo que no se puede juzgar mediante este parámetro.
 
 ### [Goconvey](https://github.com/smartystreets/goconvey)
 
-No se encuentra en mantenimiento y los commits realizados son prácticamente nulos en los últimos siete años. Las entradas en snyk Advisor, correspondientemente, le dan una baja puntiación de health (entre 40 y 50 sobre 100).
+No se encuentra en mantenimiento y los commits realizados son prácticamente nulos en los últimos siete años (6 el último mes). Las entradas en snyk Advisor, correspondientemente, le dan una baja puntiación de health (entre 40 y 50 sobre 100).
 
 ### [Goblin](https://github.com/franela/goblin)
 
