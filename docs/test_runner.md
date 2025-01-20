@@ -28,3 +28,7 @@ Se trata del paquete de testing de la biblioteca estándar de golang por lo que 
 ## SELECCIÓN FINAL
 
 Siguiendo los criterios elegidos anteriormente, escogeremos usar el paquete de la biblioteca estándar de golang: **Go testing package**.
+
+## CLI
+
+Al haber elegido **Go testing package**, por ende, estaremos eligiendo emplear como CLI la suborden "test", incluida en el mismo paquete.
