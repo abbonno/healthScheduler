@@ -5,7 +5,7 @@
 Se emplearán los siguientes criterios en la búsqueda y selección de una de las bibliotecas de aserciones empleadas en nuestro proyecto.
 
 - Mantenimiento: se actualiza frecuentemente. Esto se puede observar en los datos observados en el apartado "Insights" de los repositorios en github. También se empleará la plataforma ["snyk Advisor"](https://snyk.io/advisor/golang) que mide el grado de "health" o salud de una herramienta dado su estado de mantenimiento.
-- Estándar: en caso de que el anterior factor no sea claramente decisivo, se optará por elegir la herramienta que cumple el estándar del lenguaje elegido.
+- Herramienta propia del lenguaje: en caso de que el anterior factor no sea claramente decisivo, se optará por elegir de entre las herramientas la que sea propia del lenguaje.
 
 ## OPCIONES
 
@@ -19,8 +19,12 @@ Es actualizado con mucha constancia desde 2014. En el último mes se pueden obse
 
 ### [Paquete gotest.tools/assert](https://github.com/gotestyourself/gotest.tools)
 
-Se trata de una librería moderna de aserciones entre las herramientas de gotest.tools, pero tiene un mantenimiento un poco inestable. Prueba de ello es que solo se han realizado 23 commits este mes en un intervalo de 3 días seguidos. No existe una entrada para puntuar la herramienta en snyk Advisor, por lo que no se puede juzgar mediante este parámetro.
+Se trata de una librería moderna de aserciones entre las herramientas de gotest.tools, pero su mantenimiento es pobre. Se han realizado 23 commits este mes, lo cual es bastante inferior en comparación con el resto de herramientas. No existe una entrada para puntuar la herramienta en snyk Advisor, por lo que no se puede juzgar mediante este parámetro.
+
+### [Go testing package](https://pkg.go.dev/testing)
+
+Se trata del paquete de testing de la biblioteca estándar de golang por lo que es preferente.
 
 ## SELECCIÓN FINAL
 
-Siguiendo los criterios se optará por emplear el estándar de Golang. La propia herramienta de testing estándar de Golang ofrece la posibilidad de realizar validaciones, suficientes para realizar la función de las aserciones.
+Siguiendo los criterios se optará por emplear el paquete de la biblioteca estándar de golang: **Go testing package**. La propia herramienta de testing Golang ofrece la posibilidad de realizar validaciones, suficientes para realizar la función de las aserciones.
