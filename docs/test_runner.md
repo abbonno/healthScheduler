@@ -5,7 +5,7 @@
 Se emplearán los siguientes criterios en la búsqueda y selección de un test runner adecuado para nuestro proyecto.
 
 - Mantenimiento: se trata de una herramienta que se actualiza a menudo respecto a errores o nuevas necesidades. También se empleará la plataforma ["snyk Advisor"](https://snyk.io/advisor/golang) que mide el grado de "health" o salud de una herramienta dado su estado de mantenimiento.
-- Herramienta propia del lenguaje: en caso de que el anterior factor no sea claramente decisivo, se optará por elegir de entre las herramientas la que sea propia del lenguaje.
+- Forma parte de la librería estándar: en caso de que el anterior factor no sea claramente decisivo, se optará por elegir de entre las herramientas la que forme parte de la librería estándar del lenguaje elegido, lo cual se considera buena práctica.
 
 ## OPCIONES
 
