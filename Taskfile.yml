@@ -4,7 +4,7 @@ tasks:
   check:
     desc: Validar la sintaxis de los archivos fuente de Go.
     cmds:
-      - go vet ./...
+      - gofmt -e .
   test:
     desc: Ejecutar los tests.
     cmds:
