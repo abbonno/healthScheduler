@@ -19,7 +19,7 @@ Es actualizado con mucha constancia desde 2014. En el último mes se pueden obse
 
 ### [Paquete gotest.tools/assert](https://github.com/gotestyourself/gotest.tools)
 
-Se trata de una librería moderna de aserciones entre las herramientas de gotest.tools, pero su mantenimiento es pobre. Se han realizado 23 commits este mes, lo cual es bastante inferior en comparación con el resto de herramientas. No existe una entrada para puntuar la herramienta en snyk Advisor, por lo que no se puede juzgar mediante este parámetro.
+No se actualiza a menudo. Se han realizado 23 commits este mes, lo cual es bastante inferior en comparación con el resto de herramientas. No existe una entrada para puntuar la herramienta en snyk Advisor, por lo que no se puede juzgar mediante este parámetro.
 
 ### [Go testing package](https://pkg.go.dev/testing)
 
