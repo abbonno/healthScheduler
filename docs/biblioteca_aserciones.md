@@ -23,7 +23,7 @@ No se actualiza a menudo. Se han realizado 23 commits este mes, lo cual es basta
 
 ### [Go testing package](https://pkg.go.dev/testing)
 
-Podemos valorar en el [historial de la carpeta de la herramienta en el repositorio de github de golang](https://github.com/golang/go/commits/master/src/testing) que se realizan actualizaciones constantemente. Se trata del paquete de testing de la biblioteca estándar de golang por lo que es preferente.
+Podemos valorar en el [historial de la carpeta de la herramienta en el repositorio de github de golang](https://github.com/golang/go/commits/master/src/testing) que se realizan actualizaciones constantemente. No existe información sobre el mismo en snyk advisor. Se trata del paquete de testing de la biblioteca estándar de golang por lo que es preferente.
 
 ## SELECCIÓN FINAL
 
