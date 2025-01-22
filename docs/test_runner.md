@@ -27,7 +27,7 @@ Podemos valorar en el [historial de la carpeta de la herramienta en el repositor
 
 ## SELECCIÓN FINAL
 
-Siguiendo los criterios elegidos anteriormente, escogeremos usar el paquete de la biblioteca estándar de golang: **Go testing package**.
+Dado que el criterio de mantenimiento a partir de snyk advisor no es concluyente y siguiendo los criterios elegidos anteriormente, escogeremos usar el paquete de la biblioteca estándar de golang: **Go testing package**.
 
 ## CLI
 

@@ -27,4 +27,4 @@ Podemos valorar en el [historial de la carpeta de la herramienta en el repositor
 
 ## SELECCIÓN FINAL
 
-Siguiendo los criterios elegidos anteriormente se optará por emplear el paquete de la biblioteca estándar de golang: **Go testing package**. La propia herramienta de testing Golang ofrece la posibilidad de realizar validaciones, suficientes para realizar la función de las aserciones.
+Dado que el criterio de mantenimiento a partir de snyk advisor no es concluyente y siguiendo los criterios elegidos anteriormente se optará por emplear el paquete de la biblioteca estándar de golang: **Go testing package**. La propia herramienta de testing Golang ofrece la posibilidad de realizar validaciones, suficientes para realizar la función de las aserciones.
