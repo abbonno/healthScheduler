@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"strconv"
+	"time"
 )
 
 type TipoTurno string
@@ -17,7 +18,7 @@ const (
 type Turno struct {
 	Nombre TipoTurno
 	Area   string
-	Fecha  Fecha
+	Fecha  time.Time
 }
 
 type Empleado string
@@ -35,7 +36,7 @@ func GenerarPlanAnual(enfermeros []Empleado) (TurnosAsignados, error) {
 
 	turnosAsignados := make(map[*Empleado][]Turno)
 
-	fecha, _ := FechaActual()
+	fechaActual := time.Now()
 	tiposTurno := []TipoTurno{Mañana, Tarde, Noche}
 	areas := func() []string {
 		base := "Área"
@@ -48,6 +49,7 @@ func GenerarPlanAnual(enfermeros []Empleado) (TurnosAsignados, error) {
 	indiceEnfermero := 0
 
 	for i := 0; i < diasPlan; i++ {
+		fecha := fechaActual.AddDate(0, 0, i)
 		for _, tipoTurno := range tiposTurno {
 			for _, area := range areas {
 				empleado := &enfermeros[indiceEnfermero]
@@ -66,7 +68,6 @@ func GenerarPlanAnual(enfermeros []Empleado) (TurnosAsignados, error) {
 				indiceEnfermero = (indiceEnfermero + 1) % totalEmpleados
 			}
 		}
-		fecha = SumarDía(fecha)
 	}
 
 	return turnosAsignados, nil
@@ -76,7 +77,7 @@ func MostrarTurnosEnfermero(enfermero *Empleado, plan TurnosAsignados) string {
 	turnos := plan[enfermero]
 	var resultado string
 	for _, turno := range turnos {
-		resultado += "Fecha: " + turno.Fecha.String() + ", Turno: " + string(turno.Nombre) + ", Área: " + turno.Area + "\n"
+		resultado += "Fecha: " + turno.Fecha.Format("02-01-2006") + ", Turno: " + string(turno.Nombre) + ", Área: " + turno.Area + "\n"
 	}
 	return resultado
 }

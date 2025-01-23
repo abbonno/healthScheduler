@@ -6,10 +6,10 @@ import (
 	"time"
 )
 
-type Ocupacion map[Fecha]map[TipoTurno]map[string]bool
+type Ocupacion map[time.Time]map[TipoTurno]map[string]bool
 
 func NewOcupacion(plan TurnosAsignados) Ocupacion {
-	ocupacion := make(map[Fecha]map[TipoTurno]map[string]bool)
+	ocupacion := make(map[time.Time]map[TipoTurno]map[string]bool)
 	for _, turnos := range plan {
 		for _, turno := range turnos {
 			if ocupacion[turno.Fecha] == nil {
@@ -90,20 +90,24 @@ func TestAreaSinOcupar(t *testing.T) {
 
 }
 
+func CrearFecha(año int, mes time.Month, día int) time.Time {
+	return time.Date(año, mes, día, 0, 0, 0, 0, time.UTC)
+}
+
 func TestMostrarTurnosEnfermero(t *testing.T) {
 	enfermero1 := Empleado("Enfermero1")
 	enfermero2 := Empleado("Enfermero2")
 
-	fecha, _ := NewFecha(13, time.January, 2025)
+	fechaEjemplo := CrearFecha(2025, time.January, 13)
 
 	planSemanal := TurnosAsignados{
 		&enfermero1: {
-			{Fecha: fecha, Area: "Área1", Nombre: Mañana},
-			{Fecha: SumarDía(fecha), Area: "Área2", Nombre: Tarde},
+			{Fecha: fechaEjemplo, Area: "Área1", Nombre: Mañana},
+			{Fecha: fechaEjemplo.AddDate(0, 0, 1), Area: "Área2", Nombre: Tarde},
 		},
 		&enfermero2: {
-			{Fecha: fecha, Area: "Área2", Nombre: Noche},
-			{Fecha: SumarDía(fecha), Area: "Área3", Nombre: Mañana},
+			{Fecha: fechaEjemplo, Area: "Área2", Nombre: Noche},
+			{Fecha: fechaEjemplo.AddDate(0, 0, 2), Area: "Área3", Nombre: Mañana},
 		},
 	}
 
