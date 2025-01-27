@@ -24,3 +24,6 @@ type TurnosAsignados map[*Empleado][]Turno
 
 const totalAreas = 10
 const diasPlan = 365
+
+func GenerarPlanAnual() TurnosAsignados {
+}
