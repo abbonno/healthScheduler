@@ -71,3 +71,29 @@ func TestAreaSinOcupar(t *testing.T) {
 		}
 	}
 }
+
+func TestMostrarTurnosEnfermero(t *testing.T) {
+	enfermero1 := Empleado("Enfermero1")
+	enfermero2 := Empleado("Enfermero2")
+
+	fechaEjemplo := time.Date(2025, time.January, 13, 0, 0, 0, 0, time.UTC)
+
+	planSemanal := TurnosAsignados{
+		&enfermero1: {
+			{Fecha: fechaEjemplo, Area: "Área1", Nombre: Mañana},
+			{Fecha: fechaEjemplo.AddDate(0, 0, 1), Area: "Área2", Nombre: Tarde},
+		},
+		&enfermero2: {
+			{Fecha: fechaEjemplo, Area: "Área2", Nombre: Noche},
+			{Fecha: fechaEjemplo.AddDate(0, 0, 2), Area: "Área3", Nombre: Mañana},
+		},
+	}
+
+	resultado := MostrarTurnosEnfermero(&enfermero1, planSemanal)
+
+	esperado := "Fecha: 13-01-2025, Turno: Mañana, Área: Área1\nFecha: 14-01-2025, Turno: Tarde, Área: Área2\n"
+
+	if resultado != esperado {
+		t.Errorf("Resultado inesperado: got %q \n want %q", resultado, esperado)
+	}
+}
