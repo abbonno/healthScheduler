@@ -12,7 +12,7 @@ func NewOcupacion(plan TurnosAsignados) Ocupacion {
 	ocupacion := make(map[time.Time]map[TipoTurno]map[string]int)
 	for _, turnos := range plan {
 		for _, turno := range turnos {
-			fechaNormalizada := turno.Fecha
+			fechaNormalizada := NormalizarFecha(turno.Fecha)
 			if ocupacion[fechaNormalizada] == nil {
 				ocupacion[fechaNormalizada] = make(map[TipoTurno]map[string]int)
 			}
@@ -59,7 +59,7 @@ func TestAreaSinOcupar(t *testing.T) {
 	turnosAsignados := GenerarPlanAnual(enfermeros)
 
 	listaOcupacion := NewOcupacion(turnosAsignados)
-	fechaInicio := time.Now()
+	fechaInicio := NormalizarFecha(time.Now())
 	for i := 0; i < 365; i++ {
 		fecha := fechaInicio.AddDate(0, 0, i)
 		for _, tipoTurno := range tiposTurno {
@@ -76,8 +76,7 @@ func TestMostrarTurnosEnfermero(t *testing.T) {
 	enfermero1 := Empleado("Enfermero1")
 	enfermero2 := Empleado("Enfermero2")
 
-	fechaEjemplo := time.Date(2025, time.January, 13, 0, 0, 0, 0, time.UTC)
-
+	fechaEjemplo := NormalizarFecha(time.Date(2025, time.January, 13, 0, 0, 0, 0, time.UTC))
 	planSemanal := TurnosAsignados{
 		&enfermero1: {
 			{Fecha: fechaEjemplo, Area: "Área1", Nombre: Mañana},
@@ -90,7 +89,6 @@ func TestMostrarTurnosEnfermero(t *testing.T) {
 	}
 
 	resultado := MostrarTurnosEnfermero(&enfermero1, planSemanal)
-
 	esperado := "Fecha: 13-01-2025, Turno: Mañana, Área: Área1\nFecha: 14-01-2025, Turno: Tarde, Área: Área2\n"
 
 	if resultado != esperado {

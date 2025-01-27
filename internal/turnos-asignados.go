@@ -26,9 +26,13 @@ type TurnosAsignados map[*Empleado][]Turno
 const totalAreas = 10
 const diasPlan = 365
 
+func NormalizarFecha(t time.Time) time.Time {
+	return time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, t.Location())
+}
+
 func GenerarPlanAnual(enfermeros []Empleado) TurnosAsignados {
 	turnosAsignados := make(map[*Empleado][]Turno)
-	fechaActual := time.Now()
+	fechaActual := NormalizarFecha(time.Now())
 	tiposTurno := []TipoTurno{Mañana, Tarde, Noche}
 	areas := make([]string, totalAreas)
 	for i := 1; i <= totalAreas; i++ {
