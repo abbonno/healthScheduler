@@ -46,3 +46,29 @@ func TestAreaSinOcupar(t *testing.T) {
 	}
 
 }
+
+func TestAreaOcupadaDoblemente(t *testing.T) {
+	totalEnfermeros := 15
+	enfermeros := make([]Empleado, totalEnfermeros)
+	for i := 1; i <= totalEnfermeros; i++ {
+		e := Empleado("Enfermero" + strconv.Itoa(i))
+		enfermeros[i-1] = e
+	}
+	plan := GenerarPlanAnual(enfermeros)
+	ocupacion := make(map[time.Time]map[TipoTurno]map[string]bool)
+	for _, turnos := range plan {
+		for _, turno := range turnos {
+			fechaNormalizada := turno.Fecha
+			if ocupacion[fechaNormalizada] == nil {
+				ocupacion[fechaNormalizada] = make(map[TipoTurno]map[string]bool)
+			}
+			if ocupacion[fechaNormalizada][turno.Nombre] == nil {
+				ocupacion[fechaNormalizada][turno.Nombre] = make(map[string]bool)
+			}
+			if ocupacion[fechaNormalizada][turno.Nombre][turno.Area] == true {
+				t.Fatalf("Área duplicada: el área %s ya está ocupada el día %v en el turno %v", turno.Area, turno.Fecha, turno.Nombre)
+			}
+			ocupacion[fechaNormalizada][turno.Nombre][turno.Area] = true
+		}
+	}
+}
