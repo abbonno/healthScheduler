@@ -1,28 +1,18 @@
-# Build the application from source
-FROM golang:1.19 AS build-stage
+# Usar la imagen base de Go
+FROM golang:latest
 
+# Establecer el directorio de trabajo
 WORKDIR /app
 
+# Copiar archivos de configuración de Go
 COPY go.mod go.sum ./
 RUN go mod download
 
+# Copiar el código fuente
 COPY *.go ./
 
-RUN CGO_ENABLED=0 GOOS=linux go build -o /docker-gs-ping
+# Instalar task runner si es necesario
+RUN go install github.com/go-task/task/v2/cmd/task@latest
 
-# Run the tests in the container
-FROM build-stage AS run-test-stage
-RUN go test -v ./...
-
-# Deploy the application binary into a lean image
-FROM gcr.io/distroless/base-debian11 AS build-release-stage
-
-WORKDIR /
-
-COPY --from=build-stage /docker-gs-ping /docker-gs-ping
-
-EXPOSE 8080
-
-USER nonroot:nonroot
-
-ENTRYPOINT ["/docker-gs-ping"]
+# Comando para ejecutar las pruebas
+CMD ["go", "test", "./..."]
