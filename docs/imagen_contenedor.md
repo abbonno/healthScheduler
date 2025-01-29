@@ -18,7 +18,7 @@ Ya que uno de los requisitos básicos será que la imagen tenga golang instalado
 
 Es una imagen mantenida con constancia, con su último push realizado hace 7 días. El peso de su versión latest es de 289.26 MB. Al ser la imagen oficial de go, incluye el lenguaje instalado y tendrá preferencia.
 
-Dentro de la misma imagen podremos encontrar alternativas o "flavours" (según lo especificado en docker hub). En estos caso el peso se obtendrá de montar una imagen básica nosotros mismos, ya que no viene dada en docker hub:
+Dentro de la misma imagen podremos encontrar alternativas o "flavours" (según lo especificado en docker hub):
 
 - `golang:<version>` : es la imagen por defecto, tiene las características de Debian.
 
