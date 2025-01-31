@@ -31,7 +31,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: build  # Se ejecuta después de construir la imagen
+    needs: build
     steps:
       - name: Run container and test
         run: docker run -t -v `pwd`:/app/test abbonno/healthscheduler
