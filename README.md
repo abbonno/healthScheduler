@@ -52,7 +52,15 @@ Documentación
 - [Milestones](.\docs\documentacion\milestones.md)
 - [Gestor Dependencias](./docs/gestor_dependencias.md).
 - [Gestor Tareas](./docs/gestor_tareas.md).
+- [Biblioteca de aserciones](.\docs\biblioteca_aserciones.md)
+- [Test runner](.\docs\test_runner.md)
+- [Contenedor](.\docs\imagen_contenedor.md)
   
 Tareas
 
 - "task check": comprueba la sintaxis de los fuentes existentes
+- "task test": ejecuta los tests
+
+Docker
+
+- docker run -u 1001 -t -v `pwd`:/app/test abbonno/healthScheduler
