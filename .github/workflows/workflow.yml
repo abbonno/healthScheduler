@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - Objetivo5  # Se ejecuta en cada push a main
+      - Objetivo5
     paths:
       - 'Dockerfile'
       - '**.go'
