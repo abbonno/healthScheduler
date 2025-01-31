@@ -1,4 +1,4 @@
-#2
+#3
 FROM golang:latest AS test-stage
 WORKDIR /app
 COPY go.mod ./
