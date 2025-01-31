@@ -1,18 +1,6 @@
-# Usar la imagen base de Go
-FROM golang:latest
-
-# Establecer el directorio de trabajo
+FROM golang:latest AS test-stage
 WORKDIR /app
-
-# Copiar archivos de configuración de Go
-COPY go.mod go.sum ./
+COPY go.mod ./
 RUN go mod download
-
-# Copiar el código fuente
-COPY *.go ./
-
-# Instalar task runner si es necesario
-RUN go install github.com/go-task/task/v2/cmd/task@latest
-
-# Comando para ejecutar las pruebas
-CMD ["go", "test", "./..."]
+COPY . .
+CMD ["go", "test", "-v", "./..."]
