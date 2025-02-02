@@ -7,19 +7,18 @@ import (
 
 func TestObtenerAreaEmpleado(t *testing.T) {
 	turnosAsignados := make(TurnosAsignados)
+	fecha := time.Monday
+	turno := Mañana
 	e1 := Empleado("E1")
 	e2 := Empleado("E2")
 	e3 := Empleado("E3")
-	turnosAsignados[&e1] = []Turno{{Nombre: "Mañana", Area: "A1", Fecha: time.Monday}}
-	turnosAsignados[&e2] = []Turno{{Nombre: "Mañana", Area: "A2", Fecha: time.Monday}}
-	turnosAsignados[&e3] = []Turno{{Nombre: "Mañana", Area: "A3", Fecha: time.Monday}}
+	turnosAsignados[&e1] = []Turno{{Nombre: turno, Area: "A1", Fecha: fecha}}
+	turnosAsignados[&e2] = []Turno{{Nombre: turno, Area: "A2", Fecha: fecha}}
+	turnosAsignados[&e3] = []Turno{{Nombre: turno, Area: "A3", Fecha: fecha}}
 
-	empleado := "E2"
-	fecha := time.Monday
-	turno := "Mañana"
 	areaEsperada := "A2"
 
-	obtenido := ObtenerAreaEmpleado(turnosAsignados, empleado, fecha, turno)
+	obtenido := ObtenerAreaEmpleado(turnosAsignados, e2, fecha, turno)
 	if obtenido != areaEsperada {
 		t.Errorf("obtenido: %s, esperado: %s", obtenido, areaEsperada)
 	}
