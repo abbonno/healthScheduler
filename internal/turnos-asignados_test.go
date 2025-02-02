@@ -12,9 +12,9 @@ func TestObtenerAreaEmpleado(t *testing.T) {
 	e1 := Empleado("E1")
 	e2 := Empleado("E2")
 	e3 := Empleado("E3")
-	turnosAsignados[&e1] = []Turno{{Nombre: turno, Area: "A1", Fecha: fecha}}
-	turnosAsignados[&e2] = []Turno{{Nombre: turno, Area: "A2", Fecha: fecha}}
-	turnosAsignados[&e3] = []Turno{{Nombre: turno, Area: "A3", Fecha: fecha}}
+	turnosAsignados[&e1] = []Turno{{Nombre: turno, Area: "A1", DiaSemana: fecha}}
+	turnosAsignados[&e2] = []Turno{{Nombre: turno, Area: "A2", DiaSemana: fecha}}
+	turnosAsignados[&e3] = []Turno{{Nombre: turno, Area: "A3", DiaSemana: fecha}}
 
 	areaEsperada := "A2"
 
