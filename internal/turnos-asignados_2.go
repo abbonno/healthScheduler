@@ -21,12 +21,3 @@ type Turno struct {
 type Empleado string
 
 type TurnosAsignados map[*Empleado][]Turno
-
-func ObtenerAreaEmpleado(turnosAsignados TurnosAsignados, empleado Empleado, fecha time.Weekday, turno TipoTurno) string {
-	for _, t := range turnosAsignados[&empleado] {
-		if t.DiaSemana == fecha && t.Nombre == turno {
-			return t.Area
-		}
-	}
-	return ""
-}
